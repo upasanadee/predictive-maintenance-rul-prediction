@@ -100,6 +100,15 @@ torch.manual_seed(SEED)
 if torch.cuda.is_available():
     torch.cuda.manual_seed_all(SEED)
 
+from preprocessing import prepare_data
+
+X_train, y_train, X_test, y_test, ALL_FEATURES = prepare_data(
+    data_dir="data",
+    fd="FD001",
+    window=60,
+    rul_cap=125,
+)
+
 # =============================================================================
 # PYTORCH DATASET
 # =============================================================================
